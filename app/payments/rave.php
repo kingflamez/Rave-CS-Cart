@@ -137,7 +137,14 @@ if (defined('PAYMENT_NOTIFICATION')) {
                 $success = false;
                 $error = "";
                 $mode = $processor_data['processor_params']['rave_env'];
-                $seckey = $processor_data['processor_params']['rave_sk'];
+                if ($mode) {
+                    # code...
+                }
+                $seckey = $processor_data['processor_params']['rave_test_sk'];
+                if ($mode == 'live') {
+                    $seckey = $processor_data['processor_params']['rave_live_sk'];
+                }
+                
 
                 $verification = requery(0, $mode, $seckey);
 
@@ -194,12 +201,18 @@ if (defined('PAYMENT_NOTIFICATION')) {
 
     $url = fn_url("payment_notification.return?payment=rave&amount=". $maintotal);
     $mode = $processor_data['processor_params']['rave_env'];
+
+    $publicKey = $processor_data['processor_params']['rave_test_pk'];
+    $secretKey = $processor_data['processor_params']['rave_test_sk'];
+
     if ($mode == 'live') {
         $baseUrl = $liveUrl;
+        $publicKey = $processor_data['processor_params']['rave_live_pk'];
+        $secretKey = $processor_data['processor_params']['rave_live_sk'];
     }
 
     $postfields = array();
-    $postfields['PBFPubKey'] = $processor_data['processor_params']['rave_pk'];
+    $postfields['PBFPubKey'] = $publicKey;
     $postfields['customer_email'] = $order_info['email'];
     $postfields['customer_firstname'] = $order_info['firstname'];
     $postfields['custom_logo'] = $processor_data['processor_params']['rave_logo'];
@@ -216,7 +229,7 @@ if (defined('PAYMENT_NOTIFICATION')) {
     foreach ($postfields as $key => $val) {
         $stringToHash .= $val;
     }
-    $stringToHash .= $processor_data['processor_params']['rave_sk'];
+    $stringToHash .= $secretKey;
     $hashedValue = hash('sha256', $stringToHash);
     $transactionData = array_merge($postfields, array('integrity_hash' => $hashedValue));
 

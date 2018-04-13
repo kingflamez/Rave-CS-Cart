@@ -9,15 +9,27 @@
 
 </div>
 <div class="control-group">
-    <label class="control-label" for="rave_config_pk_{$payment_id}">Secret Key:</label>
+    <label class="control-label" for="rave_config_live_sk_{$payment_id}">Live Secret Key:</label>
     <div class="controls">
-        <input type="text" name="payment_data[processor_params][rave_sk]" id="rave_config_pk_{$payment_id}" value="{$processor_params.rave_sk}"   size="60">
+        <input type="text" name="payment_data[processor_params][rave_live_sk]" id="rave_config_live_sk_{$payment_id}" value="{$processor_params.rave_live_sk}"   size="60">
     </div>
 </div>
 <div class="control-group">
-    <label class="control-label" for="rave_config_sk_{$payment_id}">Public Key:</label>
+    <label class="control-label" for="rave_config_live_pk_{$payment_id}">Live Public Key:</label>
     <div class="controls">
-        <input type="text" name="payment_data[processor_params][rave_pk]" id="rave_config_sk_{$payment_id}" value="{$processor_params.rave_pk}"   size="60">
+        <input type="text" name="payment_data[processor_params][rave_live_pk]" id="rave_config_live_pk_{$payment_id}" value="{$processor_params.rave_live_pk}"   size="60">
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="rave_config_test_sk_{$payment_id}">Test Secret Key:</label>
+    <div class="controls">
+        <input type="text" name="payment_data[processor_params][rave_test_sk]" id="rave_config_test_sk_{$payment_id}" value="{$processor_params.rave_test_sk}"   size="60">
+    </div>
+</div>
+<div class="control-group">
+    <label class="control-label" for="rave_config_test_pk_{$payment_id}">Test Public Key:</label>
+    <div class="controls">
+        <input type="text" name="payment_data[processor_params][rave_test_pk]" id="rave_config_test_pk_{$payment_id}" value="{$processor_params.rave_test_pk}"   size="60">
     </div>
 </div>
 <div class="control-group">
