@@ -46,6 +46,7 @@
           <option value="NG"{if $processor_params.rave_country == "NG"}selected="selected"{/if}>Nigeria</option>
           <option value="GH" {if $processor_params.rave_country == "GH"}selected="selected"{/if}>Ghana</option>
           <option value="KE" {if $processor_params.rave_country == "KE"}selected="selected"{/if}>Kenya</option>
+          <option value="ZA" {if $processor_params.rave_country == "KE"}selected="selected"{/if}>South Africa</option>
       </select>
     </div>
 </div>

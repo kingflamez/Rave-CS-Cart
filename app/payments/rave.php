@@ -51,7 +51,7 @@ if (!defined('BOOTSTRAP')) {
 // Rave Requery
 function requery($requeryCount, $mode, $seckey)
 {
-    $stagingUrl = 'http://flw-pms-dev.eu-west-1.elasticbeanstalk.com/';
+    $stagingUrl = 'https://ravesandboxapi.flutterwave.com/';
     $liveUrl = 'https://api.ravepay.co/';
     $apiLink = $stagingUrl;
 
@@ -72,7 +72,7 @@ function requery($requeryCount, $mode, $seckey)
     // make request to endpoint.
     $data_string = json_encode($data);
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $apiLink . 'flwv3-pug/getpaidx/api/xrequery');
+    curl_setopt($ch, CURLOPT_URL, $apiLink . 'flwv3-pug/getpaidx/api/v2/verify');
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -192,7 +192,7 @@ if (defined('PAYMENT_NOTIFICATION')) {
     exit;
 } else {
 
-    $stagingUrl = 'https://rave-api-v2.herokuapp.com';
+    $stagingUrl = 'https://ravesandboxapi.flutterwave.com';
     $liveUrl = 'https://api.ravepay.co';
     $baseUrl = $stagingUrl;
 

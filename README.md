@@ -11,7 +11,9 @@ Allows you to use CS-Cart with flutterwave's Rave. Accept Payments worldwide int
 
 ## Requirements
 1. CS-Cart installation
-2. A [rave account](https://rave.flutterwave.com)
+2. A [live rave account](https://rave.flutterwave.com)
+
+> [Test rave account](https://ravesandboxapi.flutterwave.com)
 
 ## Installation
 
